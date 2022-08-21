@@ -15,10 +15,10 @@ function readyDiscord(){
 	console.log('LETS GO');
 }
 
-client.on('messageCreate', (message) => {
-	if (message.content == "hi"){
-		message.reply("HOWDY")
-	}
-});
+const WelcomeChannelID = "1007405940829589557"
+
+client.on("guildMemberAdd", (member) =>{
+	member.guild.channels.cache.get(WelcomeChannelID).send('<@${member.id}> Welcome to the Dumpster Daycare! It is still A BIT under construction.')
+})
 
 client.login(process.env.TOKEN);
